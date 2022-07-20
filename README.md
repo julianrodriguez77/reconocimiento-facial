@@ -12,7 +12,7 @@ En esta proyecto de tenemos 3 scrips de python detallamoa acontinuacion su funci
      modelo haarcascades que se especializa en la deteccion de rostros, y crea un archivo .xml el cual 
      se utilizara en el 3er scrip para la deteccion del rostro.
      
-+ detectorface: una ves que ya obtengamos el archivo xml procedemos a ejecutar el codigo, se abrira la
++ detectorface(detecordeanimal):nombre no editado.... una ves que ya obtengamos el archivo xml procedemos a ejecutar el codigo, se abrira la
      webcam y detectara los rostros registrados.
      
      
