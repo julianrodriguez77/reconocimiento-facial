@@ -3,13 +3,13 @@ import os
 import imutils
 
 #el nombre de la carpeta donde se guardan lan nuevas fotos
-CarpName = 'BenAflec'
-DirData = 'C:/Users/JULIAN/Documents/PYTHON/DetectorAnimal/imagenes'
-AnimalPath = DirData + '/' + CarpName  #direccion y nombre le la nueva carpeta
+CarpName = 'BenAflec' #nombre del rostro que va a reguistrar 
+DirData = 'C:/Users/JULIAN/Documents/PYTHON/Detector/imagenes'
+FacePath = DirData + '/' + CarpName  #direccion y nombre le la nueva carpeta
 #condicional para saber la existenia de la carpeta
-if not os.path.exists(AnimalPath):
-    print('SE CREO LA CARPETA:', AnimalPath)
-    os.makedirs(AnimalPath)
+if not os.path.exists(FacePath):
+    print('SE CREO LA CARPETA:', FacePath)
+    os.makedirs(FacePath)
 #conectamos la camara
 camara = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 #contador para contar el numero de fotos que se almancenan
@@ -18,7 +18,7 @@ faceClassif = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontal
 count = 0
 #Bucle
 while True:
-    x1, x2 = camara.read() #Creamo variables para la camara x2 almasena imagen
+    x1, x2 = camara.read() #Creamo variables para la camara x2 almacena imagen
     if x1 == False:
         break
     x2 = imutils.resize(x2, width=320)#redimencionar la pantalla
@@ -31,7 +31,7 @@ while True:
         cv2.rectangle(x2, (x,y), (x+w, y+h), (0, 255, 0), 2) #rectangulo detector
         rostros2 = auxx2[y:y+h, x:x+w]
         rostros2 = cv2.resize(rostros2, (720, 720), interpolation=cv2.INTER_CUBIC)
-        cv2.imwrite(AnimalPath + '/rostro2_{}.jpg'.format(count),rostros2)
+        cv2.imwrite(FacePath + '/rostro2_{}.jpg'.format(count),rostros2)
         count = count + 1
 
 
